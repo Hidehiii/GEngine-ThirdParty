@@ -1,0 +1,12 @@
+box2d/bin/
+box2d/bin-int/
+box2d/*.vcxproj
+box2d/*.vcxproj.filters
+GLAD/bin/
+GLAD/bin-int/
+GLAD/*.vcxproj
+GLAD/*.vcxproj.filters
+GLFW/bin/
+GLFW/bin-int/
+GLFW/*.vcxproj
+GLFW/*.vcxproj.filters

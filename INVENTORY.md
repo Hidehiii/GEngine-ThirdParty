@@ -37,6 +37,10 @@ complete local snapshot is authoritative until that comparison is completed.
 - Git LFS tracks the four files larger than 100 MiB: debug/release
   `PhysXGpu_64.dll` and debug/release `libfbxsdk-md.lib`.
 - `SPIRV-Reflect` remains a nested submodule at the original pinned commit.
+- Local Premake/Visual Studio build outputs under `bin/` and `bin-int/`, plus
+  generated `.vcxproj` files for `box2d`, `GLAD`, and `GLFW`, are intentionally
+  ignored. The tracked `box2d/.idea/workspace.xml` file from the source
+  repository is preserved.
 - Fresh-clone verification must use recursive submodule initialization and Git
   LFS. The initial migration comparison is the tracked path list and selected
   binary hashes from the source GEngine repository.
