@@ -1,3 +1,9 @@
 [submodule "SPIRV-Reflect"]
 	path = SPIRV-Reflect
 	url = https://github.com/KhronosGroup/SPIRV-Reflect.git
+[submodule "DirectX-Headers"]
+	path = DirectX-Headers
+	url = https://github.com/microsoft/DirectX-Headers.git
+[submodule "json"]
+	path = json
+	url = https://github.com/open-source-parsers/jsoncpp.git

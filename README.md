@@ -1,7 +1,8 @@
 # GEngine Third-Party Dependencies
 
 This repository is the aggregate pinned dependency snapshot consumed by GEngine.
-Clone it recursively because `SPIRV-Reflect` is a nested submodule:
+Clone it recursively because `SPIRV-Reflect`, `DirectX-Headers`, and `json`
+are nested submodules:
 
 ```sh
 git clone --recursive https://github.com/Hidehiii/GEngine-ThirdParty.git
