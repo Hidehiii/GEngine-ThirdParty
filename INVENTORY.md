@@ -10,12 +10,12 @@ complete local snapshot is authoritative until that comparison is completed.
 | box2d | Near `v2.4.1` (unverified exact tree) | Local snapshot with GEngine Premake/Visual Studio overlay files | `LICENSE` | Physics; source and project files |
 | DirectX-Headers | Pinned submodule `27d63115c1037d0e4e119085f34345bd9ecf7ada` (`v1.615.0`) | Replaces the local snapshot after a normalized tree comparison matched every local file; upstream line endings and modes are authoritative | `LICENSE` | D3D12 headers |
 | dxc | Binary package, version not encoded in a single version file | Vendored Windows x64 compiler package | `LICENSE-LLVM.txt`, `LICENSE-MIT.txt`, `LICENSE-MS.txt` | Shader compilation; libs and runtime DLLs |
-| entt | `3.13.0` | Amalgamated header snapshot | `LICENSE.txt` | ECS header |
+| entt | `3.13.0`, pinned submodule `fedcb920ce0068c35ffbc66fd4e84864e6ef71ef` | Replaces the local amalgamated snapshot after exact content comparison; the header moved from local `include/entt.hpp` to upstream `single_include/entt/entt.hpp` | `LICENSE` | ECS header |
 | FBXSDK | Binary SDK, version macro in `fbxsdk_version.h` | Vendored Windows x64 SDK; no local source patch known | No license/notice file in snapshot; redistribution terms require confirmation | FBX import; headers, libs, and LFS-tracked large libs |
 | GLAD | Generated loader; exact generator invocation not recorded | Generated OpenGL loader snapshot | No license file in snapshot; upstream generator terms require confirmation | OpenGL loader; source and headers |
 | GLFW | `3.4.0` | Local snapshot with GEngine Premake/Visual Studio overlay files | `LICENSE.md` | Window/input and Vulkan surface support |
 | glm | Near `1.0.0` (unverified exact tree) | Local source snapshot | `copying.txt` | Math headers |
-| HLSLcc | Source snapshot, exact commit unverified | Local snapshot | `license.txt` | HLSL reflection/conversion source |
+| HLSLcc | Pinned submodule `3ea1fcd6bd0ac445bc078de0bf32f0950188577b` | Exact tracked-tree match; replaces the local snapshot without content changes | `license.txt` | HLSL reflection/conversion source |
 | ImGui | `1.89.3 WIP`, snapshot reports `1.88` in an embedded demo header | Local snapshot with source-level GEngine changes and project overlay | `LICENSE.txt` | Editor/UI; source and backends |
 | ImGuizmo | Source snapshot, exact commit unverified | Local snapshot | `LICENSE` | Editor gizmos; source and headers |
 | json | JsonCpp `1.9.6`, pinned submodule `89e2973c754a9c02a49974d839779b151e95afd6` | Replaces the local snapshot after every tracked path and blob hash matched; only the upstream executable mode for `amalgamate.py` differed | `LICENSE` | JSON parsing |
@@ -42,6 +42,10 @@ complete local snapshot is authoritative until that comparison is completed.
   comparing every tracked local file against the upstream tag; `DirectX-Headers`
   differed only in line endings, and `json` differed only in the executable mode
   of `amalgamate.py`.
+- `HLSLcc` is an exact-tree submodule at `3ea1fcd6...`. `entt` is pinned at
+  `v3.13.0`; its local `include/entt.hpp` and `LICENSE.txt` matched the upstream
+  `single_include/entt/entt.hpp` and `LICENSE` blobs exactly, so the build include
+  path now uses the upstream layout.
 - Local Premake/Visual Studio build outputs under `bin/` and `bin-int/`, plus
   generated `.vcxproj` files for `box2d`, `GLAD`, and `GLFW`, are intentionally
   ignored. The tracked `box2d/.idea/workspace.xml` file from the source

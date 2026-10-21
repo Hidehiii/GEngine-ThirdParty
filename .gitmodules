@@ -7,3 +7,9 @@
 [submodule "json"]
 	path = json
 	url = https://github.com/open-source-parsers/jsoncpp.git
+[submodule "HLSLcc"]
+	path = HLSLcc
+	url = https://github.com/Unity-Technologies/HLSLcc.git
+[submodule "entt"]
+	path = entt
+	url = https://github.com/skypjack/entt.git
