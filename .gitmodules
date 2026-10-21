@@ -4,8 +4,8 @@
 [submodule "DirectX-Headers"]
 	path = DirectX-Headers
 	url = https://github.com/microsoft/DirectX-Headers.git
-[submodule "json"]
-	path = json
+[submodule "jsoncpp"]
+	path = jsoncpp
 	url = https://github.com/open-source-parsers/jsoncpp.git
 [submodule "HLSLcc"]
 	path = HLSLcc

@@ -1,7 +1,7 @@
 # GEngine Third-Party Dependencies
 
 This repository is the aggregate pinned dependency snapshot consumed by GEngine.
-Clone it recursively because `SPIRV-Reflect`, `DirectX-Headers`, `json`,
+Clone it recursively because `SPIRV-Reflect`, `DirectX-Headers`, `jsoncpp`,
 `HLSLcc`, and `entt` are nested submodules:
 
 ```sh

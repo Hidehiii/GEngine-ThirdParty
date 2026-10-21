@@ -18,7 +18,7 @@ complete local snapshot is authoritative until that comparison is completed.
 | HLSLcc | Pinned submodule `3ea1fcd6bd0ac445bc078de0bf32f0950188577b` | Exact tracked-tree match; replaces the local snapshot without content changes | `license.txt` | HLSL reflection/conversion source |
 | ImGui | `1.89.3 WIP`, snapshot reports `1.88` in an embedded demo header | Local snapshot with source-level GEngine changes and project overlay | `LICENSE.txt` | Editor/UI; source and backends |
 | ImGuizmo | Source snapshot, exact commit unverified | Local snapshot | `LICENSE` | Editor gizmos; source and headers |
-| json | JsonCpp `1.9.6`, pinned submodule `89e2973c754a9c02a49974d839779b151e95afd6` | Replaces the local snapshot after every tracked path and blob hash matched; only the upstream executable mode for `amalgamate.py` differed | `LICENSE` | JSON parsing |
+| jsoncpp | JsonCpp `1.9.6`, pinned submodule `89e2973c754a9c02a49974d839779b151e95afd6` | Replaces the local `json` snapshot after every tracked path and blob hash matched; only the upstream executable mode for `amalgamate.py` differed | `LICENSE` | JSON parsing |
 | mono | Binary Mono package, exact package version unverified | Vendored Windows library package | `LICENSE` | Scripting; static libs and headers |
 | OpenSSL | `4.0.0` headers, binary package version unverified | Vendored Windows x64 package | No top-level license/notice file in snapshot; redistribution terms require confirmation | Networking/crypto; libs and runtime DLLs |
 | PhysX | Binary SDK, version macro in PhysX headers | Vendored Windows SDK; no local source patch known | No license/notice file in snapshot; redistribution terms require confirmation | Physics; headers, libs, runtime DLLs, and LFS-tracked `PhysXGpu_64.dll` |
@@ -37,11 +37,13 @@ complete local snapshot is authoritative until that comparison is completed.
 - Git LFS tracks the four files larger than 100 MiB: debug/release
   `PhysXGpu_64.dll` and debug/release `libfbxsdk-md.lib`.
 - `SPIRV-Reflect` remains a nested submodule at the original pinned commit.
-- `DirectX-Headers` and JsonCpp (`json`) are aggregate-local submodules pinned
+- `DirectX-Headers` and JsonCpp (`jsoncpp`) are aggregate-local submodules pinned
   at `v1.615.0` and `1.9.6` respectively. Their conversion was qualified by
   comparing every tracked local file against the upstream tag; `DirectX-Headers`
-  differed only in line endings, and `json` differed only in the executable mode
+  differed only in line endings, and `jsoncpp` differed only in the executable mode
   of `amalgamate.py`.
+- Aggregate submodule directory names match the remote repository name, including
+  `GEngine-ThirdParty` at the engine level and `jsoncpp` inside the aggregate.
 - `HLSLcc` is an exact-tree submodule at `3ea1fcd6...`. `entt` is pinned at
   `v3.13.0`; its local `include/entt.hpp` and `LICENSE.txt` matched the upstream
   `single_include/entt/entt.hpp` and `LICENSE` blobs exactly, so the build include
