@@ -1,0 +1,4 @@
+PhysX/lib/Debug/PhysXGpu_64.dll filter=lfs diff=lfs merge=lfs -text
+PhysX/lib/Release/PhysXGpu_64.dll filter=lfs diff=lfs merge=lfs -text
+FBXSDK/lib/x64/debug/libfbxsdk-md.lib filter=lfs diff=lfs merge=lfs -text
+FBXSDK/lib/x64/release/libfbxsdk-md.lib filter=lfs diff=lfs merge=lfs -text
