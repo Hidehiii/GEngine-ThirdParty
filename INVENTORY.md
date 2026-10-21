@@ -13,8 +13,8 @@ complete local snapshot is authoritative until that comparison is completed.
 | entt | `3.13.0`, pinned submodule `fedcb920ce0068c35ffbc66fd4e84864e6ef71ef` | Replaces the local amalgamated snapshot after exact content comparison; the header moved from local `include/entt.hpp` to upstream `single_include/entt/entt.hpp` | `LICENSE` | ECS header |
 | FBXSDK | Binary SDK, version macro in `fbxsdk_version.h` | Vendored Windows x64 SDK; no local source patch known | No license/notice file in snapshot; redistribution terms require confirmation | FBX import; headers, libs, and LFS-tracked large libs |
 | GLAD | Generated loader; exact generator invocation not recorded | Generated OpenGL loader snapshot | No license file in snapshot; upstream generator terms require confirmation | OpenGL loader; source and headers |
-| GLFW | `3.4.0` | Local snapshot with GEngine Premake/Visual Studio overlay files | `LICENSE.md` | Window/input and Vulkan surface support |
-| glm | Near `1.0.0` (unverified exact tree) | Local source snapshot | `copying.txt` | Math headers |
+| glfw | Pinned submodule `d9d6f0f1f967807ffade6598ea9a631ebaf37a56` (`3.5.1`) | Upstream release | `LICENSE.md` | Window/input and Vulkan surface support |
+| glm | Pinned submodule `8d1fd52e5ab5590e2c81768ace50c72bae28f2ed` (`1.0.3`) | Upstream release | `copying.txt` | Math headers |
 | HLSLcc | Pinned submodule `3ea1fcd6bd0ac445bc078de0bf32f0950188577b` | Exact tracked-tree match; replaces the local snapshot without content changes | `license.txt` | HLSL reflection/conversion source |
 | ImGui | `1.89.3 WIP`, snapshot reports `1.88` in an embedded demo header | Local snapshot with source-level GEngine changes and project overlay | `LICENSE.txt` | Editor/UI; source and backends |
 | ImGuizmo | Source snapshot, exact commit unverified | Local snapshot | `LICENSE` | Editor gizmos; source and headers |
@@ -23,12 +23,12 @@ complete local snapshot is authoritative until that comparison is completed.
 | OpenSSL | `4.0.0` headers, binary package version unverified | Vendored Windows x64 package | No top-level license/notice file in snapshot; redistribution terms require confirmation | Networking/crypto; libs and runtime DLLs |
 | PhysX | Binary SDK, version macro in PhysX headers | Vendored Windows SDK; no local source patch known | No license/notice file in snapshot; redistribution terms require confirmation | Physics; headers, libs, runtime DLLs, and LFS-tracked `PhysXGpu_64.dll` |
 | shaderc | Header/package snapshot, exact version unverified | Local include snapshot | No license file in snapshot; upstream Apache-2.0 terms require confirmation | Shader compilation includes |
-| spdlog | `1.13.0` | Local snapshot; duplicate `spdlog-1.x` tree retained | `LICENSE` | Logging |
+| spdlog | Pinned submodule `79524ddd08a4ec981b7fea76afd08ee05f83755d` (`v1.17.0`) | Upstream release | `LICENSE` | Logging |
 | SPIRV-Reflect | Pinned submodule `74cd6a01f274d6cc7fc9f14c9e3608047b09c5af` | Nested Git submodule from KhronosGroup | `LICENSE` | Vulkan reflection |
 | SPIRVCross | Source snapshot, exact commit unverified | Local snapshot | `LICENSE` | SPIR-V conversion source |
-| stb | Header snapshot, exact commit unverified | Local header snapshot | `LICENSE` | Image/audio/type utility headers |
+| stb | Pinned submodule `a7d4c2175630e1ea5b6f8dd00ab96fed0b97b96d` | Upstream commit | `LICENSE` | Image/audio/type utility headers |
 | VulkanSDK | Headers report Vulkan `1.3.280`; runtime package version unverified | Vendored Windows SDK package | No license/notice file in snapshot; redistribution terms require confirmation | Vulkan/shader tools; headers, libs, and runtime DLLs |
-| yaml | yaml-cpp near `0.7.0` (unverified exact tree) | Local snapshot with GEngine project overlay | `LICENSE` | Serialization |
+| yaml-cpp | Pinned submodule `56e3bb550c91fd7005566f19c079cb7a503223cf` (`yaml-cpp-0.9.0`) | Upstream release | `LICENSE` | Serialization |
 
 ## Preservation and verification
 
@@ -48,6 +48,9 @@ complete local snapshot is authoritative until that comparison is completed.
   `v3.13.0`; its local `include/entt.hpp` and `LICENSE.txt` matched the upstream
   `single_include/entt/entt.hpp` and `LICENSE` blobs exactly, so the build include
   path now uses the upstream layout.
+- `glm`, `glfw`, `yaml-cpp`, `spdlog`, and `stb` are aggregate-local submodules
+  pinned to upstream releases or, for `stb`, the current upstream commit. Their
+  directory names match the remote repository names.
 - Local Premake/Visual Studio build outputs under `bin/` and `bin-int/`, plus
   generated `.vcxproj` files for `box2d`, `GLAD`, and `GLFW`, are intentionally
   ignored. The tracked `box2d/.idea/workspace.xml` file from the source

@@ -2,7 +2,10 @@
 
 This repository is the aggregate pinned dependency snapshot consumed by GEngine.
 Clone it recursively because `SPIRV-Reflect`, `DirectX-Headers`, `jsoncpp`,
-`HLSLcc`, and `entt` are nested submodules:
+`HLSLcc`, `entt`, `glm`, `glfw`, `yaml-cpp`, `spdlog`, and `stb` are nested
+submodules:
+
+Submodule directories use their upstream repository names.
 
 ```sh
 git clone --recursive https://github.com/Hidehiii/GEngine-ThirdParty.git
