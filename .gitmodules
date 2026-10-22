@@ -28,3 +28,12 @@
 [submodule "stb"]
 	path = stb
 	url = https://github.com/nothings/stb.git
+[submodule "imgui"]
+	path = imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "box2d"]
+	path = box2d
+	url = https://github.com/erincatto/box2d.git
+[submodule "SPIRV-Cross"]
+	path = SPIRV-Cross
+	url = https://github.com/KhronosGroup/SPIRV-Cross.git

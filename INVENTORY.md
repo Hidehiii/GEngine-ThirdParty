@@ -1,5 +1,21 @@
 # Dependency inventory
 
+## Local upgrade in progress (2026-10-22)
+
+This section supersedes the historical snapshot rows below for three dependencies:
+
+- `imgui`: v1.93.0-docking, `b916186e66aa3c02b72c6ca17455516512ed8049`.
+- `box2d`: v2.4.1, `9ebbbcd960ad424e03e5de6e66a40764c16f51bc`.
+- `SPIRV-Cross`: `300681bbcb8365a8d1eacdacdbdd0249bbf1d6b1`.
+
+All three use unmodified upstream trees. First-party build overlays reside in
+GEngine. SPIRV-Cross core/GLSL libraries and headers now share a source revision.
+The old Box2D tree differed in its unused SetUserData declaration and a comment;
+the upstream definition is authoritative. The old snapshots are backed up in the
+parent workspace at `tmp/dependencies-before-upgrade.zip` and remain in aggregate
+commit 91ffb9e7. Engine Debug/Release builds and twelve bounded graph/UI backend
+runs passed. Editor and visual checks remain open in the parent dependency TODO.
+
 This inventory records the initial aggregate snapshot migrated from
 `GEngine/vendor` on 2026-10-21. Source comparisons marked *unverified* identify
 dependencies whose exact upstream commit still needs a tree comparison; the
@@ -7,7 +23,7 @@ complete local snapshot is authoritative until that comparison is completed.
 
 | Dependency | Snapshot/version | Provenance and local changes | License evidence | Consumers and assets |
 |---|---|---|---|---|
-| box2d | Near `v2.4.1` (unverified exact tree) | Local snapshot with GEngine Premake/Visual Studio overlay files | `LICENSE` | Physics; source and project files |
+| box2d | Upstream submodule `9ebbbcd960ad424e03e5de6e66a40764c16f51bc` (`v2.4.1`) | Replaces snapshot; first-party build overlay; restores upstream unused SetUserData declaration and comment spelling | `LICENSE` | Physics; built from source |
 | DirectX-Headers | Pinned submodule `27d63115c1037d0e4e119085f34345bd9ecf7ada` (`v1.615.0`) | Replaces the local snapshot after a normalized tree comparison matched every local file; upstream line endings and modes are authoritative | `LICENSE` | D3D12 headers |
 | dxc | Binary package, version not encoded in a single version file | Vendored Windows x64 compiler package | `LICENSE-LLVM.txt`, `LICENSE-MIT.txt`, `LICENSE-MS.txt` | Shader compilation; libs and runtime DLLs |
 | entt | `3.13.0`, pinned submodule `fedcb920ce0068c35ffbc66fd4e84864e6ef71ef` | Replaces the local amalgamated snapshot after exact content comparison; the header moved from local `include/entt.hpp` to upstream `single_include/entt/entt.hpp` | `LICENSE` | ECS header |
@@ -16,7 +32,7 @@ complete local snapshot is authoritative until that comparison is completed.
 | glfw | Pinned submodule `d9d6f0f1f967807ffade6598ea9a631ebaf37a56` (`3.5.1`) | Upstream release | `LICENSE.md` | Window/input and Vulkan surface support |
 | glm | Pinned submodule `8d1fd52e5ab5590e2c81768ace50c72bae28f2ed` (`1.0.3`) | Upstream release | `copying.txt` | Math headers |
 | HLSLcc | Pinned submodule `3ea1fcd6bd0ac445bc078de0bf32f0950188577b` | Exact tracked-tree match; replaces the local snapshot without content changes | `license.txt` | HLSL reflection/conversion source |
-| ImGui | `1.89.3 WIP`, snapshot reports `1.88` in an embedded demo header | Local snapshot with source-level GEngine changes and project overlay | `LICENSE.txt` | Editor/UI; source and backends |
+| imgui | Upstream submodule `b916186e66aa3c02b72c6ca17455516512ed8049` (`v1.93.0-docking`) | Replaces old docking snapshot; backend adaptations and Premake overlay live in GEngine | `LICENSE.txt` | Editor/UI; source and backends |
 | ImGuizmo | Source snapshot, exact commit unverified | Local snapshot | `LICENSE` | Editor gizmos; source and headers |
 | jsoncpp | JsonCpp `1.9.6`, pinned submodule `89e2973c754a9c02a49974d839779b151e95afd6` | Replaces the local `json` snapshot after every tracked path and blob hash matched; only the upstream executable mode for `amalgamate.py` differed | `LICENSE` | JSON parsing |
 | mono | Binary Mono package, exact package version unverified | Vendored Windows library package | `LICENSE` | Scripting; static libs and headers |
@@ -25,7 +41,7 @@ complete local snapshot is authoritative until that comparison is completed.
 | shaderc | Header/package snapshot, exact version unverified | Local include snapshot | No license file in snapshot; upstream Apache-2.0 terms require confirmation | Shader compilation includes |
 | spdlog | Pinned submodule `79524ddd08a4ec981b7fea76afd08ee05f83755d` (`v1.17.0`) | Upstream release | `LICENSE` | Logging |
 | SPIRV-Reflect | Pinned submodule `74cd6a01f274d6cc7fc9f14c9e3608047b09c5af` | Nested Git submodule from KhronosGroup | `LICENSE` | Vulkan reflection |
-| SPIRVCross | Source snapshot, exact commit unverified | Local snapshot | `LICENSE` | SPIR-V conversion source |
+| SPIRV-Cross | Upstream submodule `300681bbcb8365a8d1eacdacdbdd0249bbf1d6b1` | Replaces unverified snapshot; core/GLSL built together with headers instead of SDK libraries | `LICENSE` | Reflection and OpenGL shader conversion |
 | stb | Pinned submodule `a7d4c2175630e1ea5b6f8dd00ab96fed0b97b96d` | Upstream commit | `LICENSE` | Image/audio/type utility headers |
 | VulkanSDK | Headers report Vulkan `1.3.280`; runtime package version unverified | Vendored Windows SDK package | No license/notice file in snapshot; redistribution terms require confirmation | Vulkan/shader tools; headers, libs, and runtime DLLs |
 | yaml-cpp | Pinned submodule `56e3bb550c91fd7005566f19c079cb7a503223cf` (`yaml-cpp-0.9.0`) | Upstream release | `LICENSE` | Serialization |
