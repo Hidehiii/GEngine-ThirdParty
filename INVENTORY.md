@@ -1,5 +1,14 @@
 # Dependency inventory
 
+## Editor-only Qt 6 source (2026-10-24)
+
+`qtbase`: https://github.com/qt/qtbase.git, tag `v6.10.3`, commit
+`7ddbc87d8e14ce51d2957ea72d0a6077593d5ff4`. Unmodified upstream source
+includes Core/Gui/Widgets. Future consumer: Qt EditorHost only; GEngine and
+games have no Qt links. Upstream `LICENSES/` and per-file SPDX notices define
+the licensing evidence. No Qt SDK binaries, build outputs or deployment plugins
+have been added. Source verification does not validate a Qt editor build.
+
 ## ImGuizmo conversion (2026-10-24)
 
 ImGuizmo now uses pristine upstream commit
