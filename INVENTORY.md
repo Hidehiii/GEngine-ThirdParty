@@ -1,5 +1,16 @@
 # Dependency inventory
 
+## ImGuizmo conversion (2026-10-24)
+
+ImGuizmo now uses pristine upstream commit
+`105e4fde45e4e74aae8973d98750820ef7aca7e2` (v1.92.5 WIP header), replacing
+the modified v1.61 WIP snapshot. Engine-specific GENGINE_API/Core.h changes are
+gone; the first-party editor owns GizmoController and compiles only the main
+upstream source. The unused auxiliary widgets/examples remain available in the
+upstream repository, but are not linked. The old snapshot is recoverable from
+aggregate commit e05958d and the parent workspace's temporary backup. Build and
+runtime verification are tracked in the parent's dependency TODO.
+
 ## Local upgrade in progress (2026-10-22)
 
 This section supersedes the historical snapshot rows below for three dependencies:
@@ -33,7 +44,7 @@ complete local snapshot is authoritative until that comparison is completed.
 | glm | Pinned submodule `8d1fd52e5ab5590e2c81768ace50c72bae28f2ed` (`1.0.3`) | Upstream release | `copying.txt` | Math headers |
 | HLSLcc | Pinned submodule `3ea1fcd6bd0ac445bc078de0bf32f0950188577b` | Exact tracked-tree match; replaces the local snapshot without content changes | `license.txt` | HLSL reflection/conversion source |
 | imgui | Upstream submodule `b916186e66aa3c02b72c6ca17455516512ed8049` (`v1.93.0-docking`) | Replaces old docking snapshot; backend adaptations and Premake overlay live in GEngine | `LICENSE.txt` | Editor/UI; source and backends |
-| ImGuizmo | Source snapshot, exact commit unverified | Local snapshot | `LICENSE` | Editor gizmos; source and headers |
+| ImGuizmo | Upstream submodule `105e4fde45e4e74aae8973d98750820ef7aca7e2` (v1.92.5 WIP header) | Unmodified upstream; editor-owned integration replaces engine export patch | `LICENSE` (MIT) | Editor only: `src/ImGuizmo.cpp`; upstream examples not built |
 | jsoncpp | JsonCpp `1.9.6`, pinned submodule `89e2973c754a9c02a49974d839779b151e95afd6` | Replaces the local `json` snapshot after every tracked path and blob hash matched; only the upstream executable mode for `amalgamate.py` differed | `LICENSE` | JSON parsing |
 | mono | Binary Mono package, exact package version unverified | Vendored Windows library package | `LICENSE` | Scripting; static libs and headers |
 | OpenSSL | `4.0.0` headers, binary package version unverified | Vendored Windows x64 package | No top-level license/notice file in snapshot; redistribution terms require confirmation | Networking/crypto; libs and runtime DLLs |

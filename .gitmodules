@@ -37,3 +37,6 @@
 [submodule "SPIRV-Cross"]
 	path = SPIRV-Cross
 	url = https://github.com/KhronosGroup/SPIRV-Cross.git
+[submodule "ImGuizmo"]
+	path = ImGuizmo
+	url = https://github.com/CedricGuillemet/ImGuizmo.git
